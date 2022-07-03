@@ -1,7 +1,7 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-const useFetch = () => {
+const useWeather = () => {
   const [weather, setWeather] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,8 +29,7 @@ const useFetch = () => {
     };
     navigator.geolocation.getCurrentPosition(success);
   }, []);
-  console.log(weather);
   return { weather, isLoading };
 };
 
-export default useFetch;
+export default useWeather;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import SvgComponent from "../hooks/svg/SvgComponent";
-import Cloudsvg from "../hooks/svg/Cloudsvg";
-import Pressuresvg from "../hooks/svg/Pressuresvg";
+import SvgComponent from "../svg/SvgComponent";
+import Cloudsvg from "../svg/Cloudsvg";
+import Pressuresvg from "../svg/Pressuresvg";
 
 const WeatherInfo = ({
   weather,
