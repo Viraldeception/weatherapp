@@ -32,7 +32,7 @@ function App() {
     };
     navigator.geolocation.getCurrentPosition(success);
   }, []);
-  console.log(weather);
+  console.log(weather.temperature);
 
   return (
     <div className="background">
@@ -43,7 +43,7 @@ function App() {
           weather={weather}
           city={weather.city}
           country={weather.country}
-          temperature={weather.temperature}
+          temperature={Math.round(weather.temperature)}
           description={weather.description}
           wind={weather.wind}
           clouds={weather.clouds}

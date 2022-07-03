@@ -13,6 +13,7 @@ const WeatherInfo = ({
 }) => {
   const [temp, setTemp] = useState([0, " °C"]);
   const [background, setBackground] = useState("");
+  console.log(temp);
 
   document.body.style = `background: url(${background}) 
   no-repeat center center fixed;
@@ -20,10 +21,12 @@ const WeatherInfo = ({
   background-size: 100% 100%`;
 
   useEffect(() => {
-    setTemp([Math.round(temperature * 100) / 100, " °C"]);
+    setTemp([temperature, " °C"]);
     changeBackground(icon);
+    console.log(temperature);
   }, [temperature, icon]);
 
+  console.log(temperature);
   const changeBackground = (icon) => {
     if (icon) {
       //Convertir string a numero, para la evaluación del background
@@ -51,6 +54,7 @@ const WeatherInfo = ({
       setTemp([value, " °C"]);
     }
   };
+
   return (
     <div className="weather__box">
       <h1 className="box__title">
