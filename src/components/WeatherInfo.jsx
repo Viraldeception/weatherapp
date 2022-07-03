@@ -22,7 +22,7 @@ const WeatherInfo = ({
   useEffect(() => {
     setTemp([Math.round(temperature * 100) / 100, " °C"]);
     changeBackground(icon);
-  }, [temperature]);
+  }, [temperature, icon]);
 
   const changeBackground = (icon) => {
     if (icon) {
