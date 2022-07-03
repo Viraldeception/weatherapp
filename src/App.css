@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.background {
+  font-size: 100%;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  bottom: 0;
+  padding: 5px;
+  left: 0;
+}
+
+.weather__box {
+  background-color: rgba(242, 240, 240, 0.5);
+  padding: 30px;
+  width: min(1000px, 90%);
+  border-radius: 15px;
+  box-shadow: 1px 1px 7px 0 #0009;
+  position: relative;
+}
+
+.box__title {
+  color: white;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.app__box {
+  color: #4b5afb;
+}
+
+.box__data__name {
+  text-align: center;
+  color: #4b5afb;
+}
+
+.box__data__temp {
+  color: white;
+  font-size: 50px;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  background-color: #4b5afb;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  padding: 10px 15px;
+  margin-top: 15px;
+  cursor: pointer;
+  /* outline: 0; */
+}
+
+.icon__box {
+  width: 100px;
+}
+
+.box__extra__information {
+  color: #4b5afb;
+  display: flex;
+  flex-direction: flex;
+  justify-content: space-around;
+  /* align-items: flex-end; */
+}
+
+.icon__temp__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.data__info {
+  color: black;
+  font-weight: bold;
+}
+
+.list__info {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding-right: 35px;
+}
+
+.description__icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.information {
+  padding: 10px;
+}
+
+.loader {
+  font-size: 40px;
+  color: white;
+  background-color: blue;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 240px;
+  animation-name: beesandbombs;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.82, 0.01, 0.15, 1.01);
+}
+.loading .circle {
+  position: relative;
+  background: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  margin: 10px;
+  float: right;
+  animation-name: beesandbombscircle;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.82, 0.01, 0.15, 1.01);
+}
+.loading .circle:before {
+  content: "";
+  position: absolute;
+  background: #2980b9;
+  width: 50px;
+  height: 50px;
+  animation-name: beesandbombscirclebox;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.82, 0.01, 0.15, 1.01);
+}
+.loading .circle:nth-child(1)::before {
+  left: 0;
+  bottom: 0;
+  border-bottom-left-radius: 40px;
+}
+.loading .circle:nth-child(2)::before {
+  right: 0;
+  bottom: 0;
+  border-bottom-right-radius: 40px;
+}
+.loading .circle:nth-child(3)::before {
+  top: 0;
+  left: 0;
+  border-top-left-radius: 40px;
+}
+.loading .circle:nth-child(4)::before {
+  top: 0;
+  right: 0;
+  border-top-right-radius: 40px;
+}
+.loading:before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: #2980b9;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  animation-name: beesandbombsrev;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.82, 0.01, 0.15, 1.01);
+}
+@keyframes beesandbombs {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+@keyframes beesandbombsrev {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  52% {
+    visibility: hidden;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+    visibility: hidden;
+  }
+}
+@keyframes beesandbombscircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes beesandbombscirclebox {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  51% {
+    visibility: visible;
+  }
+  100% {
+    visibility: visible;
+  }
+}
