@@ -27,7 +27,7 @@ html {
 .weather__box {
   background-color: rgba(242, 240, 240, 0.5);
   padding: 30px;
-  width: min(1000px, 90%);
+  width: min(600px, 90%);
   border-radius: 15px;
   box-shadow: 1px 1px 7px 0 #0009;
   position: relative;
@@ -60,10 +60,10 @@ button {
   font-weight: bold;
   font-size: 1.2rem;
   color: white;
-  padding: 10px 15px;
+  padding: 0px 15px;
   margin-top: 15px;
   cursor: pointer;
-  /* outline: 0; */
+  outline: 0;
 }
 
 .icon__box {
@@ -74,7 +74,7 @@ button {
   color: #4b5afb;
   display: flex;
   flex-direction: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   /* align-items: flex-end; */
 }
 
@@ -94,6 +94,7 @@ button {
   display: flex;
   flex-direction: column;
   padding-right: 35px;
+  align-items: center;
 }
 
 .description__icon {
@@ -106,6 +107,20 @@ button {
   padding: 10px;
 }
 
+.wind__icon,
+.cloud__icon,
+.pressure__icon {
+  width: 20px;
+}
+
+.wind__data__icon,
+.cloud__data__icon,
+.pressure__data__icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+}
 .loader {
   font-size: 40px;
   color: white;

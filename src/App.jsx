@@ -32,7 +32,6 @@ function App() {
     };
     navigator.geolocation.getCurrentPosition(success);
   }, []);
-  console.log(weather.temperature);
 
   return (
     <div className="background">

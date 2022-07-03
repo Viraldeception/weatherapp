@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import SvgComponent from "../hooks/svg/SvgComponent";
+import Cloudsvg from "../hooks/svg/Cloudsvg";
+import Pressuresvg from "../hooks/svg/Pressuresvg";
 
 const WeatherInfo = ({
   weather,
@@ -13,7 +16,6 @@ const WeatherInfo = ({
 }) => {
   const [temp, setTemp] = useState([0, " °C"]);
   const [background, setBackground] = useState("");
-  console.log(temp);
 
   document.body.style = `background: url(${background}) 
   no-repeat center center fixed;
@@ -23,10 +25,8 @@ const WeatherInfo = ({
   useEffect(() => {
     setTemp([temperature, " °C"]);
     changeBackground(icon);
-    console.log(temperature);
   }, [temperature, icon]);
 
-  console.log(temperature);
   const changeBackground = (icon) => {
     if (icon) {
       //Convertir string a numero, para la evaluación del background
@@ -43,7 +43,7 @@ const WeatherInfo = ({
       }
     }
   };
-  console.log(icon);
+
   const handleTemp = () => {
     let value = 0;
     if (temp[1] === " °C") {
@@ -71,27 +71,38 @@ const WeatherInfo = ({
           <img
             className="icon__box"
             src={weather && `http://openweathermap.org/img/wn/${icon}@2x.png`}
-            alt=""
+            alt="Icono estado"
           />
           <h3>{description}</h3>
         </div>
         <ul className="list__info">
           <li className="information">
-            <b>Wind Speed: </b>
-            <span className="data__info">{wind} Mph</span>
+            <div className="wind__data__icon">
+              <SvgComponent className="wind__icon" />
+              <b>Wind Speed: </b>
+              <span className="data__info">{wind} m/s</span>
+            </div>
           </li>
           <li className="information">
-            <b>Pressure: </b>
-            <span className="data__info">{pressure} Hpa</span>
+            <div className="pressure__data__icon">
+              <Pressuresvg className="pressure__icon" />
+              <b>Pressure: </b>
+              <span className="data__info">{pressure} Hpa</span>
+            </div>
           </li>
           <li className="information">
-            <b>Clouds: </b>
-            <span className="data__info">{clouds}%</span>
+            <div className="cloud__data__icon">
+              <Cloudsvg className="cloud__icon" />
+              <b>Clouds: </b>
+              <span className="data__info">{clouds}%</span>
+            </div>
           </li>
         </ul>
       </div>
       <div className="btn-center">
-        <button onClick={handleTemp}>Degrees °C/°F</button>
+        <button onClick={handleTemp}>
+          {temp[1] === " °C" ? <p>Change to °F</p> : <p>Change to °C</p>}
+        </button>
       </div>
     </div>
   );
